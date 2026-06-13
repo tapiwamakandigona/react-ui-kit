@@ -23,6 +23,7 @@ describe('Button', () => {
   it('applies variant styles', () => {
     render(<Button variant="danger">Delete</Button>);
     const btn = screen.getByRole('button');
-    expect(btn.style.background).toBe('#ef4444');
+    // jsdom normalizes hex colors to rgb() format
+    expect(btn.style.background).toBe('rgb(239, 68, 68)');
   });
 });
