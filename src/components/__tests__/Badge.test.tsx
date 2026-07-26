@@ -11,12 +11,14 @@ describe('Badge', () => {
   it('applies success variant', () => {
     const { container } = render(<Badge variant="success">OK</Badge>);
     const badge = container.firstChild as HTMLElement;
-    expect(badge.style.color).toContain('22c55e');
+    // jsdom normalizes hex colors to rgb() format
+    expect(badge.style.color).toBe('rgb(34, 197, 94)');
   });
 
   it('applies danger variant', () => {
     const { container } = render(<Badge variant="danger">Error</Badge>);
     const badge = container.firstChild as HTMLElement;
-    expect(badge.style.color).toContain('ef4444');
+    // jsdom normalizes hex colors to rgb() format
+    expect(badge.style.color).toBe('rgb(239, 68, 68)');
   });
 });
